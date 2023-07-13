@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <title>Registration Form</title>
+</head>
+<link rel="stylesheet" href="index.css">
+<body>
+    <div class="container">
+        <h1>Registration Form</h1>
+        <div class="content">
+            <form action="" method="POST">
+                <input type="text" name="fname" id="fname" placeholder="First Name"><br>
+                <span id="fname_error" class="err"></span><br>
+                <input type="text" name="lname" id="lname" placeholder="Last Name"><br>
+                <span id="lname_error" class="err"></span><br>
+                <input type="email" name="email" id="email" placeholder="Email"><br>
+                <span id="email_error" class="err"></span><br>
+                <input type="text" name="mobileno" id="mobileno" maxlength="10" placeholder="Mobile No"><br>
+                <span id="mobile_error" class="err"></span><br>
+                <input type="text" name="uname" id="uname" placeholder="User Name"><br>
+                <span id="uname_error" class="err"></span><br>
+                <input type="password" name="psw" id="psw" placeholder="Password"><br>
+                <span id="psw_error" class="err"></span><br>
+                <input type="submit" name="submit" id="submit" value="Submit">
+            </form>
+        </div>
+    </div>
+</body>
+</html>
+<script src="index.js"> </script>
