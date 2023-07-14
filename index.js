@@ -32,13 +32,17 @@ $(document).ready(function(){
     });
 
     $('#submit').on('click', function(event) {
-        event.preventDefault();
-        validateFName();
-        validateLName();
-        validateEmail();
-        validateContact();
-        validateUName();
-        validatePassword();
+        if ($('#fname').val() !== '' && $('#lname').val() !== '' && $('#email').val() !== '' && $('#mobileno').val() !== '' && $('#uname').val() !== '' && $('#psw').val() !== ''){
+            alert("Form Submitted :)");
+        } else{
+            event.preventDefault();
+            validateFName();
+            validateLName();
+            validateEmail();
+            validateContact();
+            validateUName();
+            validatePassword();
+        }
     });
     
     function validateFName() {
@@ -123,17 +127,13 @@ $(document).ready(function(){
     function validateUName() {
         const input = $('#uname');
         const uname = input.val();
-        const unameregex = /^[A-Za-z0-9]\w{2,15}$/;
-        const isValid = unameregex.test(uname);
+        // const unameregex = /^[A-Za-z0-9]\w{2,15}$/;
+        // const isValid = unameregex.test(uname);
         
         if(uname === ''){
             input.addClass("error-border");
             $('#uname_error').show();
             $('#uname_error').text("*This Fiels is Required !!");
-        } else if (!isValid) {
-            input.addClass("error-border");
-            $('#uname_error').show();
-            $('#uname_error').text("Enter Valid User Name!");
         } else {
             input.removeClass("error-border");
             $('#uname_error').text("");
