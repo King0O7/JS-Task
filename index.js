@@ -1,7 +1,5 @@
 $(document).ready(function(){
     
-   
-
     $('#fname').on('blur', function() {
         validateFName();
     }).on('focus', function() {
@@ -33,10 +31,8 @@ $(document).ready(function(){
         $('#psw_error').hide();
     });
 
-
-
-    $('#submit').on('click',function(event){
-        event.preventDefault();        
+    $('#submit').on('click', function(event) {
+        event.preventDefault();
         validateFName();
         validateLName();
         validateEmail();
@@ -44,97 +40,123 @@ $(document).ready(function(){
         validateUName();
         validatePassword();
     });
-
-
+    
     function validateFName() {
-        const input = event.target;
-        const fname = input.value;
+        const input = $('#fname');
+        const fname = input.val();
         const fnameregex = /^[A-Za-z\s]+$/;
         const isValid = fnameregex.test(fname);
-        
-        if (!isValid) {
-            $("#fname").addClass("error-border");
+        if(fname === ''){
+            input.addClass("error-border");
+            $('#fname_error').show();
+            $('#fname_error').text("*This Fiels is Required !!");
+        } else if (!isValid) {
+            input.addClass("error-border");
             $('#fname_error').show();
             $('#fname_error').text("Enter Valid First Name!");
         } else {
-            $("#fname").removeClass("error-border");
+            input.removeClass("error-border");
             $('#fname_error').text("");
         }
     }
+
     function validateLName() {
-        const input = event.target;
-        const lname = input.value;
+        const input = $('#lname');
+        const lname = input.val();
         const lnameregex = /^[a-zA-Z]+$/;
         const isValid = lnameregex.test(lname);
         
-        if (!isValid) {
-            $("#lname").addClass("error-border");
+        if(lname === ''){
+            input.addClass("error-border");
+            $('#lname_error').show();
+            $('#lname_error').text("*This Fiels is Required !!");
+        } else if (!isValid) {
+            input.addClass("error-border");
             $('#lname_error').show();
             $('#lname_error').text("Enter Valid Last Name!");
-        } else{
-            $("#lname").removeClass("error-border");
+        } else {
+            input.removeClass("error-border");
             $('#lname_error').text("");
         }
     }
+    
     function validateEmail() {
-        const input = event.target;
-        const email = input.value;
+        const input = $('#email');
+        const email = input.val();
         const emailregex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
         const isValid = emailregex.test(email);
         
-        if (!isValid) {
-            $("#email").addClass("error-border");
+        if(email === ''){
+            input.addClass("error-border");
+            $('#email_error').show();
+            $('#email_error').text("*This Fiels is Required !!");
+        } else if (!isValid) {
+            input.addClass("error-border");
             $('#email_error').show();
             $('#email_error').text("Enter Valid Email!");
         } else {
-            $("#email").removeClass("error-border");
+            input.removeClass("error-border");
             $('#email_error').text("");
         }
     }
-    function validateContact() {
-        const input = event.target;
-        const mobileno = input.value;
-        const mobileregex = /^[789]\d{9}$/; 
-        const isValid = mobileregex.test(mobileno);
-        
-    if (!isValid) {
-        $("#mobileno").addClass("error-border");
-        $('#mobile_error').show();
-        $('#mobile_error').text("Enter Valid Mobile Number!");
-    } else {
-        $("#mobileno").removeClass("error-border");
-        $('#mobile_error').text("");
-    }
-    }
-    function validateUName() {
-        const input = event.target;
-        const uname = input.value;
-        const unameregex=  /^[A-Za-z0-9]\w{2,15}$/; 
-        const isValid = unameregex.test(uname);
-
     
-    if (!isValid) {
-        $("#uname").addClass("error-border");
-        $('#uname_error').show();
-        $('#uname_error').text("Enter Valid User Name!");
-    } else {
-        $("#uname").removeClass("error-border");
-        $('#uname_error').text("");
+    function validateContact() {
+        const input = $('#mobileno');
+        const mobileno = input.val();
+        const mobileregex = /^[789]\d{9}$/;
+        const isValid = mobileregex.test(mobileno);
+
+        if(mobileno === ''){
+            input.addClass("error-border");
+            $('#mobile_error').show();
+            $('#mobile_error').text("*This Fiels is Required !!");
+        } else if (!isValid) {
+            input.addClass("error-border");
+            $('#mobile_error').show();
+            $('#mobile_error').text("Enter Valid Mobile Number!");
+        } else {
+            input.removeClass("error-border");
+            $('#mobile_error').text("");
+        }
     }
+
+    function validateUName() {
+        const input = $('#uname');
+        const uname = input.val();
+        const unameregex = /^[A-Za-z0-9]\w{2,15}$/;
+        const isValid = unameregex.test(uname);
+        
+        if(uname === ''){
+            input.addClass("error-border");
+            $('#uname_error').show();
+            $('#uname_error').text("*This Fiels is Required !!");
+        } else if (!isValid) {
+            input.addClass("error-border");
+            $('#uname_error').show();
+            $('#uname_error').text("Enter Valid User Name!");
+        } else {
+            input.removeClass("error-border");
+            $('#uname_error').text("");
+        }
     }
+
     function validatePassword() {
-        const input = event.target;
-        const psw = input.value;
-        const pswregex=  /^[A-Za-z0-9]\w{7,30}$/; 
+        const input = $('#psw');
+        const psw = input.val();
+        const pswregex = /^[A-Za-z0-9]\w{7,30}$/;
         const isValid = pswregex.test(psw);
         
-    if (!isValid) {
-        $("#psw").addClass("error-border");
-        $('#psw_error').show();
-        $('#psw_error').text("Enter Valid Password!");
-    } else {
-        $("#psw").removeClass("error-border");
-        $('#psw_error').text("");
-    }
+        if(psw === ''){
+            input.addClass("error-border");
+            $('#psw_error').show();
+            $('#psw_error').text("*This Fiels is Required !!");
+        } else if (!isValid) {
+            input.addClass("error-border");
+            $('#psw_error').show();
+            $('#psw_error').text("Enter Valid Password!");
+        } else {
+            input.removeClass("error-border");
+            $('#psw_error').text("");
+        }
     }
 });
